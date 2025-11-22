@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# UmbrellaShooter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**UmbrellaShooter** es un prototipo funcional de un shooter en tercera persona (TPS) 3D ejecutándose completamente en el navegador. Este proyecto demuestra las capacidades de la web moderna para ofrecer experiencias de juego inmersivas sin necesidad de descargas nativas, utilizando el ecosistema de React y WebGL.
 
-Currently, two official plugins are available:
+## 📋 Descripción del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto es un sandbox de un solo nivel que implementa mecánicas centrales de juego, física en tiempo real y renderizado avanzado. El objetivo es proporcionar una base sólida y performante para el desarrollo de juegos web.
 
-## React Compiler
+## 🚀 Características Implementadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎮 Jugabilidad
+*   **Controlador de Personaje**: Movimiento fluido basado en físicas con soporte para caminar (WASD) y saltar.
+*   **Sistema de Combate**:
+    *   Disparo instantáneo (Hitscan) mediante Raycasting.
+    *   Feedback visual inmediato con rayos láser, fogonazos (muzzle flash) y marcadores de impacto.
+*   **Interacción con Enemigos**: Los enemigos son entidades físicas que reaccionan a los impactos y son eliminados de la escena al ser alcanzados.
 
-## Expanding the ESLint configuration
+### 🎨 Gráficos y Atmósfera
+*   **Motor 3D**: Renderizado de alta fidelidad con Three.js.
+*   **Iluminación Dinámica**: Sombras en tiempo real, iluminación ambiental y luces puntuales.
+*   **Post-procesamiento**: Pipeline de efectos cinematográficos que incluye Bloom (resplandor), Viñeteado, Ruido fílmico y Aberración Cromática.
+*   **Entorno**: Escenario nocturno con cielo procedural, niebla volumétrica y partículas flotantes.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔊 Audio Procedural
+Todo el audio es generado en tiempo real utilizando la **Web Audio API**, sin depender de archivos de sonido externos:
+*   Efectos de disparo láser.
+*   Sonidos de impacto.
+*   Pasos sincronizados con el movimiento.
+*   Efectos de salto.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Stack Tecnológico
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+El proyecto está construido sobre una arquitectura moderna y optimizada:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+*   **Core**: [React 19](https://react.dev/)
+*   **Build Tool**: [Vite](https://vitejs.dev/) (Servidor de desarrollo ultrarrápido)
+*   **Lenguaje**: TypeScript / JavaScript
+*   **Gráficos**: [Three.js](https://threejs.org/) + [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+*   **Físicas**: [Rapier](https://rapier.rs/) (Motor de físicas WASM) + [React Three Rapier](https://github.com/pmndrs/react-three-rapier)
+*   **Efectos**: [React Three Postprocessing](https://github.com/pmndrs/react-three-postprocessing)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🕹️ Controles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Acción | Tecla / Input |
+| :--- | :--- |
+| **Moverse** | `W`, `A`, `S`, `D` |
+| **Saltar** | `Espacio` |
+| **Apuntar** | Movimiento del Mouse |
+| **Disparar** | Clic Izquierdo |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Instalación y Uso
+
+1.  **Clonar el repositorio**:
+    ```bash
+    git clone https://github.com/ia-torlaschi/UmbrellaShooter.git
+    cd UmbrellaShooter
+    ```
+
+2.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
+
+3.  **Iniciar servidor de desarrollo**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Abrir en el navegador**:
+    Visita `http://localhost:5173` (o el puerto que indique la consola).
+
+## 🔮 Estado Actual
+El proyecto se encuentra en una fase de prototipo funcional ("Vertical Slice"). Todas las características listadas arriba están implementadas y operativas.
