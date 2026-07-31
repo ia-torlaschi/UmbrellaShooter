@@ -1,5 +1,12 @@
 # UmbrellaShooter
 
+<!-- ia-backup-gitignore-policy-2026-07-31 -->
+> **Política Git IA pública — 2026-07-31:** las 27 rutas operativas IA están
+> excluidas de Git. Este repositorio no recibe Sync, Google overlay, memoria
+> operativa ni particulares desde ia-backup. La exclusión declara expresamente
+> .agents, .claude, .codex, .continue, .copilot, .gemini y
+> .github.
+
 **UmbrellaShooter** es un prototipo funcional de un shooter en tercera persona (TPS) 3D ejecutándose completamente en el navegador. Este proyecto demuestra las capacidades de la web moderna para ofrecer experiencias de juego inmersivas sin necesidad de descargas nativas, utilizando el ecosistema de React y WebGL.
 
 ## 📋 Descripción del Proyecto
